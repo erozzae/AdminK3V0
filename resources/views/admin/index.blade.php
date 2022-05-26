@@ -11,9 +11,7 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col-md-3">
-                         {{-- <i class="fas fa-users fa-2x text-gray-300"></i> --}}
-                         <i><img src="{{ asset('img/icon/users.png') }}" alt="" width="50px"></i>
-                       
+                         <img src="{{ asset('imgIcon/users.png') }}" alt="" width="50px">
                     </div>
                     <div class="col-md-9">
                         <div class="h4 mb-1 font-weight-bold text-gray-800 ">User</div>
@@ -30,7 +28,7 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col-md-3">
-                        <i><img src="{{ asset('img/icon/materials.png') }}" alt="" width="50px"></i>
+                        <i><img src="{{ asset('imgIcon/materials.png') }}" alt="" width="50px"></i>
                    </div>
 
                     <div class="col-md-9">
@@ -48,7 +46,7 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col-md-3">
-                        <i><img src="{{ asset('img/icon/tasks.png') }}" alt="" width="50px"></i>
+                        <i><img src="{{ asset('imgIcon/tasks.png') }}" alt="" width="50px"></i>
                     </div>
                     <div class="col-md-9">
                         <div class="h4 mb-1 font-weight-bold text-gray-800 ">Soal</div>
