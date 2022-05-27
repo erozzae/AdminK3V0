@@ -9,7 +9,7 @@
 	<div class="col-lg-6">
 		<div class="card">
 			<div class="card-header">
-				Email : {{ Auth::user()->email }}
+				Profile
 			</div>
 			<div class="card-body">
 				  <div class="card mb-3" style="max-width: 540px;">
@@ -20,7 +20,7 @@
 					    <div class="col-md-8">
 					      <div class="card-body">
 					        <h5 class="card-title">{{ Auth::user()->name }}</h5>
-					        
+					        {{ Auth::user()->email }}
 					        <p class="card-text"><small class="text-muted">{{ 'updated at '.\Carbon\Carbon::parse(Auth::user()->updated_at)->diffForHumans() }}</small></p>
 					      </div>
 					    </div>
@@ -50,7 +50,7 @@
 						<small class="text-secondary">kosongkan kolom password jika tidak ingin mengubah password</small>
 					</div>
 					<div class="form-group">
-						<button class="btn btn-primary btn-sm">Update</button>
+						<button class="btn btn-success btn-sm">Update</button>
 					</div>
 				</form>
 			</div>
