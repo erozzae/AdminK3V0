@@ -38,9 +38,7 @@
             <span>User</span></a>
     </li>
 
-
-
-    {{-- <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
             aria-expanded="true" aria-controls="collapseOne">
             <i class="fas fa-fw fa-table"></i>
@@ -51,11 +49,11 @@
                 <a class="collapse-item" href="{{ route('user.index') }}">User</a>
             </div>
         </div>
-    </li> --}}
+    </li> -->
     @endcan
     
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('blank-page') }}">
             <i class="fa fa-exclamation-circle"></i>
             <span>About</span>
         </a>
@@ -123,12 +121,11 @@
     </li>
     @endcan
 
-    {{-- <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link" href="">
             <i class="fas fa-file-signature"></i>
             <span>Regulasi</span></a>
-    </li> --}}
-
+    </li> -->
 
     <!-- Divider -->
     <hr class="sidebar-divider">
@@ -154,25 +151,23 @@
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">Other Pages:</h6>
                 <a class="collapse-item mb-1 bg-transparent" href="{{ route('404-page') }}"><span class="text-white">404 Page</span></a>
-                <a class="collapse-item mb-1 bg-transparent" href="{{ route('blank-page') }}"><span class="text-white">Blank Page</span></a>
             </div>
         </div>
     </li>
-    
 
     <!-- Nav Item - Charts -->
-    {{-- <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link" href="{{ route('chart') }}">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Charts</span></a>
-    </li> --}}
+    </li> -->
 
     <!-- Nav Item - Tables -->
-    {{-- <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link" href="{{ route('tables') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Tables</span></a>
-    </li> --}} 
+    </li> -->
     {{-- ->menuju admin tables di route --}}
 
     <!-- Divider -->
