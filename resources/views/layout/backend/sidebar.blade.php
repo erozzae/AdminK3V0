@@ -8,9 +8,6 @@
         <div class="sidebar-brand-text mx-3">K3V0</div>
     </a>
 
-    <!-- Divider -->
-    <hr class="sidebar-divider my-0">
-
     <!-- Nav Item - Dashboard -->
     @can('admin')
     <li class="nav-item">
@@ -25,30 +22,13 @@
         <a class="nav-link" href="{{ route('user') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
-    </li>  
-    @elseCan('admin')
-    <li class="nav-item">
+    </li>
+    <!-- <li class="nav-item">
         <a class="nav-link" href="{{ route('user') }}">
             <i class="fas fa-fw fa-user"></i>
             <span>User Dashboard</span></a>
-    </li>
+    </li> -->
     @endCan
-
-    <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
-
-    <!-- Sidebar Toggler (Sidebar) -->
-    <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-    </div>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Interface
-    </div>
 
     @can('admin')
     <li class="nav-item">
@@ -83,19 +63,63 @@
 
     @can('admin')
     <li class="nav-item">
-        <a class="nav-link" href="">
-            <i class=" fa fa-align-center"></i>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMateri"
+            aria-expanded="true" aria-controls="collapsePages">
+            <i class="fa fa-align-center"></i>
             <span>Materi</span>
         </a>
+        <div id="collapseMateri" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class=" py-2 collapse-inner rounded">
+                <a class="collapse-item mb-1 bg-transparent" href="">
+                    <span class="text-white">BAB I</span>
+                </a>
+                <a class="collapse-item mb-1 bg-transparent" href="">
+                    <span class="text-white">BAB II</span>
+                </a>
+                <a class="collapse-item mb-1 bg-transparent" href="">
+                    <span class="text-white">BAB III</span>
+                </a>
+                <a class="collapse-item mb-1 bg-transparent" href="">
+                    <span class="text-white">BAB IV</span>
+                </a>
+                <a class="collapse-item mb-1 bg-transparent" href="">
+                    <span class="text-white">BAB V</span>
+                </a>
+                <a class="collapse-item mb-1 bg-transparent" href="">
+                    <span class="text-white">BAB VI</span>
+                </a>
+                <a class="collapse-item mb-1 bg-transparent" href="">
+                    <span class="text-white">BAB VII</span>
+                </a>
+                <a class="collapse-item mb-1 bg-transparent" href="">
+                    <span class="text-white">BAB VIII</span>
+                </a>
+                <div class="collapse-divider"></div>
+            </div>
+        </div>
     </li>
     @endcan
    
     @can('admin')
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSoal"
+            aria-expanded="true" aria-controls="collapsePages">
             <i class="fa fa-check-square"></i>
             <span>Soal</span>
         </a>
+        <div id="collapseSoal" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class=" py-2 collapse-inner rounded">
+                <a class="collapse-item mb-1 bg-transparent" href=""><span class="text-white">BAB I</span></a>
+                <a class="collapse-item mb-1 bg-transparent" href=""><span class="text-white">BAB II</span></a>
+                <a class="collapse-item mb-1 bg-transparent" href=""><span class="text-white">BAB III</span></a>
+                <a class="collapse-item mb-1 bg-transparent" href=""><span class="text-white">BAB IV</span></a>
+                <a class="collapse-item mb-1 bg-transparent" href=""><span class="text-white">BAB V</span></a>
+                <a class="collapse-item mb-1 bg-transparent" href=""><span class="text-white">BAB VI</span></a>
+                <a class="collapse-item mb-1 bg-transparent" href=""><span class="text-white">BAB VII</span></a>
+                <a class="collapse-item mb-1 bg-transparent" href=""><span class="text-white">BAB VIII</span></a>
+                <div class="collapse-divider"></div>
+            </div>
+        </div>
     </li>
     @endcan
 
@@ -151,22 +175,11 @@
     </li> --}} 
     {{-- ->menuju admin tables di route --}}
 
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('profile') }}">
-            <i class="fas fa-fw fa-user"></i>
-            <span>Profile</span></a>
-    </li>
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
 
-    
-    @can('admin')
-    <li class="nav-item">
-        <a class="nav-link" href="">
-            <i class="fa fa-clipboard"></i>
-            <span> User Manual</span>
-        </a>
-    </li>
-    @endcan
-
-    
-    
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
 </ul>
