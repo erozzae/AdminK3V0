@@ -1,6 +1,6 @@
 @extends('layout.backend.app',[
-	'title' => 'Blank Page',
-	'pageTitle' => 'Blank Page',
+	'title' => 'About',
+	'pageTitle' => 'About',
 ])
 @section('content')
 
