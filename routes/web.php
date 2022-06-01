@@ -23,7 +23,7 @@ use App\Http\Controllers\User\ProfileController;
 |
 */
 
-Route::view('/','auth.login');
+Route::view('/','welcome');
 
 
 Route::group(['namespace' => 'Admin','middleware' => 'auth','prefix' => 'admin'],function(){
