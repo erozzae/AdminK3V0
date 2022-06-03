@@ -1,3 +1,5 @@
+
+
 <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
@@ -23,41 +25,30 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
-    <!-- <li class="nav-item">
+     <li class="nav-item">
         <a class="nav-link" href="{{ route('user') }}">
             <i class="fas fa-fw fa-user"></i>
             <span>User Dashboard</span></a>
-    </li> -->
+    </li>
     @endCan
 
     @can('admin')
     <li class="nav-item">
         <a class="nav-link" href="{{ route('user.index') }}">
             <i class="fas fa-fw fa-user"></i>
-            <!-- <i class="fas fa-fw fa-table"></i> -->
             <span>User</span></a>
     </li>
-
-    <!-- <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
-            aria-expanded="true" aria-controls="collapseOne">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Master Data</span>
-        </a>
-        <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{ route('user.index') }}">User</a>
-            </div>
-        </div>
-    </li> -->
+    
     @endcan
     
+    @can('admin')
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('blank-page') }}">
+        <a class="nav-link" href="{{ route('about') }}">
             <i class="fa fa-exclamation-circle"></i>
             <span>About</span>
         </a>
     </li>
+    @endcan
 
     @can('admin')
     <li class="nav-item">
@@ -68,10 +59,14 @@
         </a>
         <div id="collapseMateri" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class=" py-2 collapse-inner rounded">
-                <a class="collapse-item mb-1 bg-transparent" href="">
-                    <span class="text-white">BAB I</span>
-                </a>
-                <a class="collapse-item mb-1 bg-transparent" href="">
+                {{-- <a href="" class="btn btn-primary" data-toggle="modal" data-target="#create-Materi">Tambah Materi</a> --}}
+                @foreach ($chapter as $c)
+                    <a class="collapse-item mb-1 bg-transparent" href="">
+                        <span class="text-white">{{ $c['nama_bab'] }}</span>
+                    </a>
+                @endforeach
+               
+                {{-- <a class="collapse-item mb-1 bg-transparent" href="">
                     <span class="text-white">BAB II</span>
                 </a>
                 <a class="collapse-item mb-1 bg-transparent" href="">
@@ -91,12 +86,50 @@
                 </a>
                 <a class="collapse-item mb-1 bg-transparent" href="">
                     <span class="text-white">BAB VIII</span>
-                </a>
+                </a> --}}
                 <div class="collapse-divider"></div>
             </div>
         </div>
     </li>
+
+    <!-- Modal Create -->
+{{-- <div class="modal fade" id="create-Materi" tabindex="-1" role="dialog" aria-labelledby="create-modalLabel" aria-hidden="true">
+    <form action="" enctype="multipart/form-data" method="post">
+        @csrf
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="create-modalLabel">Create Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+      
+                <form id="createForm">
+                <div class="form-group">
+                    <label for="n">Nama Bab</label>
+                    <input type="" name="nama_bab" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="e">Tambah Materi</label>
+                    <input type="file" name="isi_materi" class="form-control">
+                </div>
+                
+      
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary btn-store">Simpan</button>
+                </form>
+              </div>
+            </div>
+          </div>
+    </form>
+  </div> --}}
+  <!-- Modal Create -->
     @endcan
+    
    
     @can('admin')
     <li class="nav-item">
@@ -155,19 +188,6 @@
         </div>
     </li>
 
-    <!-- Nav Item - Charts -->
-    <!-- <li class="nav-item">
-        <a class="nav-link" href="{{ route('chart') }}">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span></a>
-    </li> -->
-
-    <!-- Nav Item - Tables -->
-    <!-- <li class="nav-item">
-        <a class="nav-link" href="{{ route('tables') }}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
-    </li> -->
     {{-- ->menuju admin tables di route --}}
 
     <!-- Divider -->

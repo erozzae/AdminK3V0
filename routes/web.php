@@ -29,9 +29,13 @@ Route::view('/','welcome');
 Route::group(['namespace' => 'Admin','middleware' => 'auth','prefix' => 'admin'],function(){
 	
 	Route::get('/',[AdminController::class,'index'])->name('admin')->middleware(['can:admin']);
-
-	//Route Rescource
+	
+	//Route Materials
+	Route::post('/materials','MaterialsController@addMaterials')->name('add-Materials')->middleware(['can:admin']);
+	//Route About
+	Route::get('/about','AboutController@getAbout')->name('about')->middleware('can:admin');
 	Route::resource('/user','UserController')->middleware(['can:admin']);
+
 
 	//Route View
 	

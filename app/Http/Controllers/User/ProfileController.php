@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\User;
-
+use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -13,7 +13,11 @@ class ProfileController extends Controller
 {
     public function index()
     {
-    	return view('user.profile');
+		$allchapterAPi = Http::get('http://127.0.0.1:8000/api/bab/allBab'); 
+        $chapter = $allchapterAPi->json();
+        $chapter = $chapter['allBab'];
+
+    	return view('user.profile',compact('chapter'));
     }
 
     public function update(Request $request, User $user)
@@ -26,6 +30,7 @@ class ProfileController extends Controller
 
     	$request->request->add(['password' => $password]);
     	$user->update($request->all());
+		
     	return back()->with('success','Proflie updated successfully');
     }
 }

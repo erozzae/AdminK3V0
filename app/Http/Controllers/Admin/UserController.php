@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -29,7 +29,14 @@ class UserController extends Controller
                     ->make(true);
         }
         
-        return view('admin.user.index');
+        
+        $allchapterAPi = Http::get('http://127.0.0.1:8000/api/bab/allBab'); 
+        $chapter = $allchapterAPi->json();
+        $chapter = $chapter['allBab'];
+
+        
+      
+        return view('admin.user.index',compact('chapter'));
     }
 
     public function create()

@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Providers;
-
 use Illuminate\Support\ServiceProvider;
-
 use Gate;
 
 class AppServiceProvider extends ServiceProvider
@@ -32,5 +30,7 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('user',function($user){
             return $user->role == 'user';
         });
+
+       
     }
 }
