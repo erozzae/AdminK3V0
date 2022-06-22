@@ -1,3 +1,5 @@
+{{-- //Perubahan code : menghapus middleware dan auth nama --}}
+
 
 
 <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -11,15 +13,19 @@
     </a>
 
     <!-- Nav Item - Dashboard -->
-    @can('admin')
+    
+    
+    @if (session()->get('user')['level'] == 'admin')
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
-    @endcan
+    @endif
 
-    @can('user')
+  
+
+    @if (session()->get('user')['level'] == 'auth')
     <li class="nav-item">
         <a class="nav-link" href="{{ route('user') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -30,27 +36,38 @@
             <i class="fas fa-fw fa-user"></i>
             <span>User Dashboard</span></a>
     </li>
-    @endCan
+    @endif
 
-    @can('admin')
+    @if (session()->get('user')['level'] == 'admin')
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('user.index') }}">
+        <a class="nav-link" href="{{ route('userAdmin.index') }}">
             <i class="fas fa-fw fa-user"></i>
             <span>User</span></a>
     </li>
+   
     
-    @endcan
-    
-    @can('admin')
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('about') }}">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAbout"
+            aria-expanded="true" aria-controls="collapseAbout">
             <i class="fa fa-exclamation-circle"></i>
             <span>About</span>
         </a>
+        <div id="collapseAbout" class="collapse" aria-labelledby="headingAbout" data-parent="#accordionSidebar">
+            <div class=" py-2 collapse-inner rounded">
+                <a class="nav-link" href="{{ route('about.app') }}">
+                    <i class="fa fa-exclamation-circle"></i>
+                    <span>Aplikasi</span>
+                </a>
+                <a class="nav-link" href="{{ route('about.lab') }}">
+                    <i class="fa fa-exclamation-circle"></i>
+                    <span>Lab</span>
+                </a>
+                <div class="collapse-divider"></div>
+            </div>
+        </div>
     </li>
-    @endcan
+   
 
-    @can('admin')
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMateri"
             aria-expanded="true" aria-controls="collapsePages">
@@ -59,101 +76,61 @@
         </a>
         <div id="collapseMateri" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class=" py-2 collapse-inner rounded">
-                {{-- <a href="" class="btn btn-primary" data-toggle="modal" data-target="#create-Materi">Tambah Materi</a> --}}
-                @foreach ($chapter as $c)
-                    <a class="collapse-item mb-1 bg-transparent" href="">
+              
+                {{-- @foreach ($chapter as $c)
+                    <a class="collapse-item mb-1 bg-transparent" href="{{ route('get-chapter',$c['id_bab']) }}">
                         <span class="text-white">{{ $c['nama_bab'] }}</span>
                     </a>
-                @endforeach
-               
-                {{-- <a class="collapse-item mb-1 bg-transparent" href="">
+                @endforeach --}}
+                <a class="collapse-item mb-1 bg-transparent" href="{{ route('materials',1) }}">
+                    <span class="text-white">BAB I</span>
+                </a>
+                <a class="collapse-item mb-1 bg-transparent" href="{{ route('materials',2) }}">
                     <span class="text-white">BAB II</span>
                 </a>
-                <a class="collapse-item mb-1 bg-transparent" href="">
+                <a class="collapse-item mb-1 bg-transparent" href="{{ route('materials',3) }}">
                     <span class="text-white">BAB III</span>
                 </a>
-                <a class="collapse-item mb-1 bg-transparent" href="">
+                <a class="collapse-item mb-1 bg-transparent" href="{{ route('materials',4) }}">
                     <span class="text-white">BAB IV</span>
                 </a>
-                <a class="collapse-item mb-1 bg-transparent" href="">
+                <a class="collapse-item mb-1 bg-transparent" href="{{ route('materials',5) }}">
                     <span class="text-white">BAB V</span>
                 </a>
-                <a class="collapse-item mb-1 bg-transparent" href="">
+                <a class="collapse-item mb-1 bg-transparent" href="{{ route('materials',6) }}">
                     <span class="text-white">BAB VI</span>
                 </a>
-                <a class="collapse-item mb-1 bg-transparent" href="">
+                <a class="collapse-item mb-1 bg-transparent" href="{{ route('materials',7) }}">
                     <span class="text-white">BAB VII</span>
                 </a>
-                <a class="collapse-item mb-1 bg-transparent" href="">
-                    <span class="text-white">BAB VIII</span>
-                </a> --}}
                 <div class="collapse-divider"></div>
             </div>
         </div>
     </li>
 
-    <!-- Modal Create -->
-{{-- <div class="modal fade" id="create-Materi" tabindex="-1" role="dialog" aria-labelledby="create-modalLabel" aria-hidden="true">
-    <form action="" enctype="multipart/form-data" method="post">
-        @csrf
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="create-modalLabel">Create Data</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-      
-                <form id="createForm">
-                <div class="form-group">
-                    <label for="n">Nama Bab</label>
-                    <input type="" name="nama_bab" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="e">Tambah Materi</label>
-                    <input type="file" name="isi_materi" class="form-control">
-                </div>
-                
-      
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary btn-store">Simpan</button>
-                </form>
-              </div>
-            </div>
-          </div>
-    </form>
-  </div> --}}
-  <!-- Modal Create -->
-    @endcan
-    
    
-    @can('admin')
+    
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSoal"
             aria-expanded="true" aria-controls="collapsePages">
             <i class="fa fa-check-square"></i>
-            <span>Soal</span>
+            <span>Quiz</span>
         </a>
         <div id="collapseSoal" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class=" py-2 collapse-inner rounded">
-                <a class="collapse-item mb-1 bg-transparent" href=""><span class="text-white">BAB I</span></a>
+                <a class="collapse-item mb-1 bg-transparent" href="{{ route('quiz',1) }}"><span class="text-white">BAB I</span></a>
                 <a class="collapse-item mb-1 bg-transparent" href=""><span class="text-white">BAB II</span></a>
                 <a class="collapse-item mb-1 bg-transparent" href=""><span class="text-white">BAB III</span></a>
                 <a class="collapse-item mb-1 bg-transparent" href=""><span class="text-white">BAB IV</span></a>
                 <a class="collapse-item mb-1 bg-transparent" href=""><span class="text-white">BAB V</span></a>
                 <a class="collapse-item mb-1 bg-transparent" href=""><span class="text-white">BAB VI</span></a>
                 <a class="collapse-item mb-1 bg-transparent" href=""><span class="text-white">BAB VII</span></a>
-                <a class="collapse-item mb-1 bg-transparent" href=""><span class="text-white">BAB VIII</span></a>
                 <div class="collapse-divider"></div>
             </div>
         </div>
     </li>
-    @endcan
-
+   
+    @endif
     <!-- <li class="nav-item">
         <a class="nav-link" href="">
             <i class="fas fa-file-signature"></i>
@@ -179,8 +156,8 @@
             <div class=" py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Login Screens:</h6>
                 <a class="collapse-item mb-1 bg-transparent" href="{{ route('login') }}"><span class="text-white">Login</span></a>
-                <a class="collapse-item mb-1 bg-transparent" href="{{ route('register') }}"><span class="text-white">Register</span></a>
-                <a class="collapse-item mb-1 bg-transparent" href="{{ route('forgot-password') }}"><span class="text-white">Forgot Password</span></a>
+                {{-- <a class="collapse-item mb-1 bg-transparent" href="{{ route('register') }}"><span class="text-white">Register</span></a>
+                <a class="collapse-item mb-1 bg-transparent" href="{{ route('forgot-password') }}"><span class="text-white">Forgot Password</span></a> --}}
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">Other Pages:</h6>
                 <a class="collapse-item mb-1 bg-transparent" href="{{ route('404-page') }}"><span class="text-white">404 Page</span></a>

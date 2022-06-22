@@ -10,8 +10,8 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>CHIKADMIN | {{ $title ?? 'Dashboard' }}</title>
-
+    <title>K3V0 | {{ $title ?? 'Dashboard' }}</title>
+   
     <!-- Custom fonts for this template-->
     <link href="{{ asset('template/backend/sb-admin-2') }}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -19,6 +19,7 @@
     rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="{{ asset('template/backend/sb-admin-2') }}/css/sb-admin-2.min.css" rel="stylesheet">
+    
     @stack('css')
 </head>
 
@@ -96,10 +97,11 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
+    
     <script src="{{ asset('template/backend/sb-admin-2') }}/vendor/jquery/jquery.min.js"></script>
     <script src="{{ asset('template/backend/sb-admin-2') }}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
+    {{-- <!-- Core plugin JavaScript-->
     <script src="{{ asset('template/backend/sb-admin-2') }}/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
@@ -110,15 +112,20 @@
 
     <!-- Page level custom scripts -->
     <script src="{{ asset('template/backend/sb-admin-2') }}/js/demo/chart-area-demo.js"></script>
-    <script src="{{ asset('template/backend/sb-admin-2') }}/js/demo/chart-pie-demo.js"></script>
-    <script type="text/javascript">
+    <script src="{{ asset('template/backend/sb-admin-2') }}/js/demo/chart-pie-demo.js"></script> --}}
+    
+    {{-- CK Editor --}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js"></script>
+
+    {{-- <script type="text/javascript">
         $.ajaxSetup({
           headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
               }
         });
     </script>
-    @stack('js')
+    @stack('js') --}}
+    @yield('ckEditor')
 </body>
 
 </html>

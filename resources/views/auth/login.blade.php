@@ -27,22 +27,22 @@
                                     <input name="password" required="" type="password" class="form-control form-control-user"
                                         id="exampleInputPassword" placeholder="Password">
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <div class="custom-control custom-checkbox small">
                                         <input type="checkbox" class="custom-control-input" id="customCheck">
                                         <label class="custom-control-label" for="customCheck">Remember
                                             Me</label>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <button type="submit" class="btn btn-success btn-user btn-block">Login</button>
                             </form>
                             <hr>
-                            <div class="text-center">
+                            {{-- <div class="text-center">
                                 <a class="small text-success" href="{{ route('forgot-password') }}">Forgot Password?</a>
                             </div>
                             <div class="text-center">
                                 <a class="small text-success" href="{{ route('register') }}">Create an Account!</a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

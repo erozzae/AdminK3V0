@@ -13,11 +13,11 @@ class ProfileController extends Controller
 {
     public function index()
     {
-		$allchapterAPi = Http::get('http://127.0.0.1:8000/api/bab/allBab'); 
-        $chapter = $allchapterAPi->json();
-        $chapter = $chapter['allBab'];
+		// $allchapterAPi = Http::get('http://127.0.0.1:8000/api/bab/allBab'); 
+        // $chapter = $allchapterAPi->json();
+        // $chapter = $chapter['allBab'];
 
-    	return view('user.profile',compact('chapter'));
+    	return view('user.profile');
     }
 
     public function update(Request $request, User $user)

@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
+use App\Http\Controllers\Auth\LoginController;
 use Gate;
 
 class AppServiceProvider extends ServiceProvider
@@ -30,6 +32,10 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('user',function($user){
             return $user->role == 'user';
         });
+
+        // [LoginController::class,'authenticate']
+
+        // View::share('key',([LoginController::class,'authenticate',compact('result')]));
 
        
     }

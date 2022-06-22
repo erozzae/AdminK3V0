@@ -10,10 +10,10 @@ class UserController extends Controller
 	public function index()
 	{
 
-		$allchapterAPi = Http::get('http://127.0.0.1:8000/api/bab/allBab'); 
-        $chapter = $allchapterAPi->json();
-        $chapter = $chapter['allBab'];
+		// $allchapterAPi = Http::get('http://127.0.0.1:8000/api/bab/allBab'); 
+        // $chapter = $allchapterAPi->json();
+        // $chapter = $chapter['allBab'];
 
-		return view('user.index',compact('chapter'));
+		return view('user.index');
 	}
 }

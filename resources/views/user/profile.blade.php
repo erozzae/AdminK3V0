@@ -19,9 +19,9 @@
 					    </div>
 					    <div class="col-md-8">
 					      <div class="card-body">
-					        <h5 class="card-title">{{ Auth::user()->name }}</h5>
-					        {{ Auth::user()->email }}
-					        <p class="card-text"><small class="text-muted">{{ 'updated at '.\Carbon\Carbon::parse(Auth::user()->updated_at)->diffForHumans() }}</small></p>
+					        <h5 class="card-title">{{ session()->get('user')['name'] }}</h5>
+					       	{{ session()->get('user')['email'] }}
+					        <p class="card-text"><small class="text-muted"></small></p>
 					      </div>
 					    </div>
 					  </div>
@@ -36,16 +36,15 @@
 				Edit Profile
 			</div>
 			<div class="card-body">
-				<form method="POST" action="{{ route('profile.update',Auth::user()->id) }}">
+				<form method="POST" action="">
 				@csrf
-				@method('PATCH')
 					<div class="form-group">
 						<label for="name">Name</label>
-						<input required="" value="{{ Auth::user()->name }}" class="form-control" type="" id="name" name="name">
+						<input required="" value="{{ session()->get('user')['name'] }}" class="form-control" type="" id="name" name="name">
 					</div>
 					<div class="form-group">
 						<label for="password">Password</label>
-						<input required="" value="{{ Auth::user()->password }}" class="form-control" type="hidden" id="old_password" name="old_password">
+						<input required="" value="" class="form-control" type="hidden" id="old_password" name="old_password">
 						<input type="password" id="password" name="password" class="form-control">
 						<small class="text-secondary">kosongkan kolom password jika tidak ingin mengubah password</small>
 					</div>

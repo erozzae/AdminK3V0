@@ -15,31 +15,31 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            [
-                'name'      => 'Eror Mania',
-                'email'     => 'admin@gmail.com',
-                'password'  => Hash::make('password'),
-                'role'      => 'admin',
-            ],
-            [
-                'name'      => 'Ayane',
-                'email'     => 'ayane@gmail.com',
-                'password'  => Hash::make('password'),
-                'role'      => 'admin',
-            ],
-            [
-                'name'      => 'Chika Fujiwara',
-                'email'     => 'chika@gmail.com',
-                'password'  => Hash::make('password'),
-                'role'      => 'user',
-            ],
-            [
-                'name'      => 'Kotone',
-                'email'     => 'kotone@gmail.com',
-                'password'  => Hash::make('password'),
-                'role'      => 'user',
-            ],
-        ]);
+        // DB::table('users')->insert([
+        //     [
+        //         'name'      => 'admin',
+        //         'email'     => 'admin@gmail.com',
+        //         'password'  => Hash::make('password'),
+        //         'role'      => 'admin',
+        //     ],
+        //     [
+        //         'name'      => 'Ayane',
+        //         'email'     => 'ayane@gmail.com',
+        //         'password'  => Hash::make('password'),
+        //         'role'      => 'admin',
+        //     ],
+        //     [
+        //         'name'      => 'Chika Fujiwara',
+        //         'email'     => 'chika@gmail.com',
+        //         'password'  => Hash::make('password'),
+        //         'role'      => 'user',
+        //     ],
+        //     [
+        //         'name'      => 'Kotone',
+        //         'email'     => 'kotone@gmail.com',
+        //         'password'  => Hash::make('password'),
+        //         'role'      => 'user',
+        //     ],
+        // ]);
     }
 }
