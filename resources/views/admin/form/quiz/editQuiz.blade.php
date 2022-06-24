@@ -91,6 +91,7 @@
                             <div class="col-6 text-right">
                                 <button type="submit" class="btn btn-success ">Simpan</button>
                             </div>
+
                             <div class="col-6 text-left">
                                 <button class="btn btn-success ">Kembali</button>
                             </div>

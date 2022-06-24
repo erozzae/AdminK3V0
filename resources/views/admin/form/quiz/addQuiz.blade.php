@@ -35,8 +35,7 @@
                                     </td>
 
                                     <td class="col-9">
-                                        <input class="form-check-input" type="radio" name="kunci_jawaban" value="B"
-                                            checked>
+                                        <input class="form-check-input" type="radio" name="kunci_jawaban" value="B">
                                         <label class="form-check-label">
                                             <span style="color: gray;font-weight:700">B</span>
                                         </label>
@@ -51,8 +50,7 @@
                                     </td>
 
                                     <td class="col-9">
-                                        <input class="form-check-input" type="radio" name="kunci_jawaban" value="D"
-                                            checked>
+                                        <input class="form-check-input" type="radio" name="kunci_jawaban" value="D">
                                         <label class="form-check-label">
                                             <span style="color: gray;font-weight:700">D</span>
                                         </label>

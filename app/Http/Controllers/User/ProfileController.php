@@ -20,13 +20,15 @@ class ProfileController extends Controller
     	return view('user.profile');
     }
 
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-    	if ($request->password) {
-    		$password = Hash::make($request->password);
-    	}else{
-    		$password = $request->old_password;
-    	}
+		
+    	// if ($request->password) {
+		// 	$response = Http::post('http://127.0.0.1:8000/api/auth/user/update/');
+    	// 	$password = Hash::make($request->password);
+    	// }else{
+    	// 	$password = $request->old_password;
+    	// }
 
     	$request->request->add(['password' => $password]);
     	$user->update($request->all());

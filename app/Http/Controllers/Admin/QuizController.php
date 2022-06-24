@@ -13,27 +13,33 @@ class QuizController extends Controller
     
     public function quiz($id){
         //Get user token
+        $chapterId = $id;
         $token = session()->get('user')['token'];
         $response = Http::withToken($token)->get('http://127.0.0.1:8000/api/auth/soal/bab/findSoal/'.$id);	
         $result = json_decode((string)$response->getBody(),true); //Convert
 
         //Get Value
         $quiz = $result['chapterQuiz'];
-        $chapterId =$result['chapterQuiz'][0]['id_bab'];
-        $questionId =$result['chapterQuiz'][0]['id_soal'];
-        $no = 1;
-
+        if(empty($quiz)){
+            return view('admin.quizIndex.emptyQuiz',compact('chapterId'));
+        }
+        else{
+            $no = 1;
+        }
+       
+      
         // //Session
         // session()->put(['chapterId' => $chapterId]);
         // session()->put(['resultQuiz' => $result]);
         
-        return view('admin.quiz',compact('quiz','no','chapterId','questionId'));
+        return view('admin.quiz',compact('quiz','no','chapterId'));
         
     }
 
     public function quizDetail($id){
         $token = session()->get('user')['token'];
         $quizId = $id;
+        // dd($id);
         $response = Http::withToken($token)->get('http://127.0.0.1:8000/api/auth/soal/findSoal/'.$quizId);	
         $result = json_decode((string)$response->getBody(),true); //Convert
         $quiz = $result['GetSoalById'];
@@ -61,7 +67,7 @@ class QuizController extends Controller
             'C'=>$request->C,
             'D'=>$request->D,
         ]);
-        return redirect()->route('quiz');
+        return redirect()->route('quiz',$chapterId);
     }
 
     public function editQuiz($id){
@@ -89,7 +95,15 @@ class QuizController extends Controller
             'C'=>$request->C,
             'D'=>$request->D,
         ]);
-        return redirect()->back();
+
+        //Response chapter
+        $responseChapter = Http::withToken($token)->get('http://127.0.0.1:8000/api/auth/soal/findSoal/'.$quizId);	
+        $resultChapter = json_decode((string)$responseChapter ->getBody(),true); //Convert
+        $quiz = $resultChapter['GetSoalById'];
+        //Get id chapter
+        $chapterId = $quiz['id_bab'];
+     
+        return redirect()->route('quiz',$chapterId);
     }
 
     public function deleteQuiz(Request $request, $id){

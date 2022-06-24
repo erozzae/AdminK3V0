@@ -44,7 +44,7 @@
 					</div>
 					<div class="form-group">
 						<label for="password">Password</label>
-						<input required="" value="" class="form-control" type="hidden" id="old_password" name="old_password">
+						<input required="" value="{{ session()->get('user')['passUser'] }}" class="form-control" type="hidden" id="old_password" name="old_password">
 						<input type="password" id="password" name="password" class="form-control">
 						<small class="text-secondary">kosongkan kolom password jika tidak ingin mengubah password</small>
 					</div>

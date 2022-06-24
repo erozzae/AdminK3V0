@@ -119,12 +119,12 @@
         <div id="collapseSoal" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class=" py-2 collapse-inner rounded">
                 <a class="collapse-item mb-1 bg-transparent" href="{{ route('quiz',1) }}"><span class="text-white">BAB I</span></a>
-                <a class="collapse-item mb-1 bg-transparent" href=""><span class="text-white">BAB II</span></a>
-                <a class="collapse-item mb-1 bg-transparent" href=""><span class="text-white">BAB III</span></a>
-                <a class="collapse-item mb-1 bg-transparent" href=""><span class="text-white">BAB IV</span></a>
-                <a class="collapse-item mb-1 bg-transparent" href=""><span class="text-white">BAB V</span></a>
-                <a class="collapse-item mb-1 bg-transparent" href=""><span class="text-white">BAB VI</span></a>
-                <a class="collapse-item mb-1 bg-transparent" href=""><span class="text-white">BAB VII</span></a>
+                <a class="collapse-item mb-1 bg-transparent" href="{{ route('quiz',2) }}"><span class="text-white">BAB II</span></a>
+                <a class="collapse-item mb-1 bg-transparent" href="{{ route('quiz',3) }}"><span class="text-white">BAB III</span></a>
+                <a class="collapse-item mb-1 bg-transparent" href="{{ route('quiz',4) }}"><span class="text-white">BAB IV</span></a>
+                <a class="collapse-item mb-1 bg-transparent" href="{{ route('quiz',5) }}"><span class="text-white">BAB V</span></a>
+                <a class="collapse-item mb-1 bg-transparent" href="{{ route('quiz',6) }}"><span class="text-white">BAB VI</span></a>
+                <a class="collapse-item mb-1 bg-transparent" href="{{ route('quiz',7) }}"><span class="text-white">BAB VII</span></a>
                 <div class="collapse-divider"></div>
             </div>
         </div>
@@ -139,37 +139,7 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Addons
-    </div>
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-            aria-expanded="true" aria-controls="collapsePages">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
-        </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class=" py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Login Screens:</h6>
-                <a class="collapse-item mb-1 bg-transparent" href="{{ route('login') }}"><span class="text-white">Login</span></a>
-                {{-- <a class="collapse-item mb-1 bg-transparent" href="{{ route('register') }}"><span class="text-white">Register</span></a>
-                <a class="collapse-item mb-1 bg-transparent" href="{{ route('forgot-password') }}"><span class="text-white">Forgot Password</span></a> --}}
-                <div class="collapse-divider"></div>
-                <h6 class="collapse-header">Other Pages:</h6>
-                <a class="collapse-item mb-1 bg-transparent" href="{{ route('404-page') }}"><span class="text-white">404 Page</span></a>
-            </div>
-        </div>
-    </li>
-
     {{-- ->menuju admin tables di route --}}
-
-    <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
-
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

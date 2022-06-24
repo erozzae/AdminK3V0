@@ -39,9 +39,11 @@ class LoginController extends Controller
 			$level = $result['user']['level'];
 			$token = $result['accessToken'];
 			$emailUser= $result['user']['email'];
+			$passUser = $result['userPass'];
 
 			// //session
-			session()->put('user',['id'=>$idUser,'name'=>$name,'level'=>$level,'token'=>$token,'email'=>$emailUser]);
+			session()->put('user',['id'=>$idUser,'name'=>$name,'level'=>$level,'token'=>$token,'email'=>$emailUser,'passUser'=>$passUser]);
+
 			
 
 			//Total User

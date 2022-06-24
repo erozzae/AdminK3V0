@@ -39,15 +39,15 @@
                             <td>{!! $q['soal'] !!}</td>
                             <td>{!! $q['kunci_jawaban'] !!}</td>
                 
-                            <form action="{{ route('quiz.edit',$questionId) }}" method="get">
+                            <form action="{{ route('quiz.edit',$q['id_soal']) }}" method="get">
                                 @csrf
                                 <td><button type="submit" class="btn btn-primary">Edit</button> </td>
                             </form>
-                            <form action="{{ route('quiz.delete',$questionId) }}" method="POST">
+                            <form action="{{ route('quiz.delete',$q['id_soal']) }}" method="POST">
                                 @csrf
                                 <td><button type="submit" class="btn btn-danger">Delete</button></td>    
                             </form>
-                            <form action="{{ route('quiz.detail',$questionId) }}" method="get">
+                            <form action="{{ route('quiz.detail',$q['id_soal']) }}" method="get">
                                 @csrf
                                 <td><button type="submit" class="btn btn-warning">Detail</button></td> 
                             </form>

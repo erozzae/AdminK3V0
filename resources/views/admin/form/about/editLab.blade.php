@@ -25,7 +25,7 @@
                                 <button type="submit" class="btn btn-success ">Simpan</button>
                             </div>
                             <div class="col-6 text-left">
-                                <button class="btn btn-success ">Kembali</button>
+                                <a href="{{ route('about.lab') }}" class="btn btn-success ">Kembali</a>
                             </div>
                         </div>
                     </form>
