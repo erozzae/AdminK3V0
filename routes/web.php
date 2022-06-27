@@ -74,6 +74,7 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function(){
 	Route::get('/user/add',[UserAdminController::class,'addData'])->name('user.add'); //Form add data
 	Route::post('/user/store',[UserAdminController::class,'storeData'])->name('user.stores'); //Store data
 	Route::post('/user/delete/{id}',[UserAdminController::class,'deleteData'])->name('user.delete'); //Delete
+	
 
 	//Route Rescource
 	Route::resource('/user','UserController');
@@ -96,7 +97,8 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function(){
 Route::group(['namespace' => 'User','prefix' => 'user'],function(){
 	Route::get('/',[UserController::class,'index'])->name('user');
 	Route::get('/profile',[ProfileController::class,'index'])->name('profile');
-	Route::patch('/profile/update/{user}',[ProfileController::class,'update'])->name('profile.update');
+	Route::post('/profile/update/{id}',[ProfileController::class,'update'])->name('profile.update');
+
 });
 
 // Route::group(['namespace' => 'Auth','middleware' => 'guest'],function(){

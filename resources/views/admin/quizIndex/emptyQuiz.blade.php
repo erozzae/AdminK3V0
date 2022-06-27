@@ -7,7 +7,7 @@
     <link href="{{ asset('template/backend/sb-admin-2') }}/vendor/datatables/dataTables.bootstrap4.min.css"
         rel="stylesheet">
 @endpush --}}
-
+@include('layout.component.alert-dismissible')
 @section('content')
     <div class="notify"></div>
 

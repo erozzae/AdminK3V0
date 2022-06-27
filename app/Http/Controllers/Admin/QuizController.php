@@ -26,11 +26,6 @@ class QuizController extends Controller
         else{
             $no = 1;
         }
-       
-      
-        // //Session
-        // session()->put(['chapterId' => $chapterId]);
-        // session()->put(['resultQuiz' => $result]);
         
         return view('admin.quiz',compact('quiz','no','chapterId'));
         
@@ -39,6 +34,7 @@ class QuizController extends Controller
     public function quizDetail($id){
         $token = session()->get('user')['token'];
         $quizId = $id;
+
         // dd($id);
         $response = Http::withToken($token)->get('http://127.0.0.1:8000/api/auth/soal/findSoal/'.$quizId);	
         $result = json_decode((string)$response->getBody(),true); //Convert
@@ -67,7 +63,7 @@ class QuizController extends Controller
             'C'=>$request->C,
             'D'=>$request->D,
         ]);
-        return redirect()->route('quiz',$chapterId);
+        return redirect()->route('quiz',$chapterId)->with('success','Quiz inserted successfully');
     }
 
     public function editQuiz($id){
@@ -103,7 +99,7 @@ class QuizController extends Controller
         //Get id chapter
         $chapterId = $quiz['id_bab'];
      
-        return redirect()->route('quiz',$chapterId);
+        return redirect()->route('quiz',$chapterId)->with('success','Quiz updated successfully');
     }
 
     public function deleteQuiz(Request $request, $id){
@@ -111,7 +107,10 @@ class QuizController extends Controller
         $token = session()->get('user')['token'];
         $quizId = $id;
         $response = Http::withToken($token)->POST('http://127.0.0.1:8000/api/auth/soal/delete/'.$quizId);
-        return redirect()->back();
+        
+
+        // dd($chapterId);
+        return redirect()->back()->with('warning','Quiz deleted successfully');
     }
 
    

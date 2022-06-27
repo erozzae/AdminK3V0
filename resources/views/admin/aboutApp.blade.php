@@ -3,6 +3,7 @@
     'pageTitle' => 'About Aplikasi'
 ])
 @section('content')
+@include('layout.component.alert-dismissible')
 <!-- Content Row -->
 <div class="row">
     <div class="col-lg-12 mb-4">

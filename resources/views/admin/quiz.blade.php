@@ -9,20 +9,18 @@
 @endpush --}}
 
 @section('content')
+
     <div class="notify"></div>
 
     <div class="card">
         <div class="card-header">
-            {{-- <a class="btn btn-success" href="{{ route('la') }}" >
-                Insert User
-            </a> --}}
             <form action="{{ route('quiz.add',$chapterId) }}" method="get">
                 <button class="btn btn-success">Insert Question</button>
             </form>
         </div>
         <div class="card-body">
+            @include('layout.component.alert-dismissible')
             <div class="table-responsive">
-
                 <table class="table table-bordered data-table text-center">
                     <thead>
                         <tr>

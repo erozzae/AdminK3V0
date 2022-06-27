@@ -9,6 +9,7 @@
 @endpush
 
 @section('content')
+@include('layout.component.alert-dismissible')
     <div class="notify"></div>
 
     <div class="card">

@@ -63,7 +63,7 @@ class AboutController extends Controller
 		
 	// $result = json_decode((string)$response->getBody(),true);
      // dd($request->toArray());
-     return redirect()->route('about.app');
+     return redirect()->route('about.app')->with('success','About App updated successfully');
   }
 
   
@@ -87,7 +87,8 @@ class AboutController extends Controller
          'about_lab' => $request->about_lab
 
     ]);
-    return redirect()->route('about.lab');
+    return redirect()->route('about.lab')->with('success','About Lab updated successfully');
+
   }
 
 

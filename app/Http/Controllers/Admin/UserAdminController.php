@@ -19,11 +19,6 @@ class UserAdminController extends Controller
         $totalUser = $result['totalUser'];
         $allUser = $result['allUser'];
         $no = 1;
-
-        //Session
-        // session()->put(['totalUser' => $totalUser]);
-
-        // dd($result);
         
         return view('admin.user.index',compact('totalUser','allUser','no'));
     }
@@ -45,7 +40,7 @@ class UserAdminController extends Controller
   
        ]);
        $result = json_decode((string)$response->getBody(),true);
-       return redirect()->route('userAdmin.index');
+       return redirect()->route('userAdmin.index')->with('success','User inserted successfully');
     }
 
     public function editData($id){
@@ -67,13 +62,13 @@ class UserAdminController extends Controller
             'level'=>$request->level
         ]);
         // dd($request);
-        return redirect()->route('userAdmin.index');
+        return redirect()->route('userAdmin.index')->with('success','User updated successfully');
     }
 
     public function deleteData($id){
         $token = session()->get('user')['token'];
         $response = Http::withToken($token)->POST('http://127.0.0.1:8000/api/auth/user/delete/'.$id);
-        return redirect()->back();
+        return redirect()->back()->with('success','User deleted successfully');
     }
 
 }

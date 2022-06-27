@@ -15,7 +15,7 @@
 				  <div class="card mb-3" style="max-width: 540px;">
 					  <div class="row no-gutters">
 					    <div class="col-md-4">
-					      <img src="{{ asset('images/backend/laravel.jpg') }}" class="card-img" alt="">
+					      <img src="{{ asset('images/backend/safety.png') }}" class="card-img" alt="">
 					    </div>
 					    <div class="col-md-8">
 					      <div class="card-body">
@@ -36,11 +36,15 @@
 				Edit Profile
 			</div>
 			<div class="card-body">
-				<form method="POST" action="">
+				<form method="POST" action="{{ route('profile.update',session()->get('user')['id']) }}">
 				@csrf
 					<div class="form-group">
 						<label for="name">Name</label>
 						<input required="" value="{{ session()->get('user')['name'] }}" class="form-control" type="" id="name" name="name">
+					</div>
+					<div class="form-group">
+						<label for="name">Email</label>
+						<input required="" value="{{ session()->get('user')['email'] }}" class="form-control" type="" id="email" name="email">
 					</div>
 					<div class="form-group">
 						<label for="password">Password</label>

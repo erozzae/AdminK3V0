@@ -4,35 +4,42 @@ namespace App\Http\Controllers\User;
 use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
-use Hash;
-
-use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Guzzle\Http\Client;
 
 class ProfileController extends Controller
 {
     public function index()
     {
-		// $allchapterAPi = Http::get('http://127.0.0.1:8000/api/bab/allBab'); 
-        // $chapter = $allchapterAPi->json();
-        // $chapter = $chapter['allBab'];
-
     	return view('user.profile');
     }
 
     public function update(Request $request, $id)
     {
+		$token = session()->get('user')['token'];
 		
-    	// if ($request->password) {
-		// 	$response = Http::post('http://127.0.0.1:8000/api/auth/user/update/');
-    	// 	$password = Hash::make($request->password);
-    	// }else{
-    	// 	$password = $request->old_password;
-    	// }
+		$name = $request->name;
+		$email = $request->email;
+		$password = $request->password;
+		$old_password = $request->old_password;
 
-    	$request->request->add(['password' => $password]);
-    	$user->update($request->all());
+		// dd($password);
 		
-    	return back()->with('success','Proflie updated successfully');
+
+		$response = Http::withToken($token)->POST('http://127.0.0.1:8000/api/auth/profile/update/'.$id,[
+			'name'=> $name,
+			'email'=>$email,
+			'password'=>$password,
+			'old_password'=> $old_password
+		]);
+
+		// dd($request);
+		
+    	return redirect()->back()->with('success','Profile updated successfully. Please relogin to see updated data');
+
+	
     }
+
+	
+
 }
