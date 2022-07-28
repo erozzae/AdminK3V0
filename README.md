@@ -13,15 +13,9 @@ Lalu ketik command dibawah ini :
 - php artisan optimize:clear 
 - php artisan key:generate (generate app key)
 - php artisan migrate (migrasi database)
-- php artisan db:seed --class=UserClass (mengisi data table users) atau bisa juga php artisan db:seed (semua tabel)
+- php artisan db:seed
 
 ## Login
 - Email : admin@gmail.com
 - Password : password
-
-## Fitur
-- Autentikasi dengan Laravel Auth
-- Autorisasi dengan Laravel Gate
-- Yajra DataTable Serverside
-- jquery ajax crud dengan datatable serverside example
 
