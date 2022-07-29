@@ -3,9 +3,7 @@
 ## Setup
 - buka direktori project di terminal anda.
 - ketikan command : cp .env.example .env (copy paste file .env.example)
-- buat database dengan nama laravel_sb_admin_2 (bebas)
-- buka file .env dengan teks editor , edit bagian DB_DATABASE= menjadi DB_DATABASE=laravel_sb_admin_2 
-(sesuaikan dengan nama database yang anda buat)
+- buka file .env (sesuaikan dengan nama database yang anda buat)
 
 Lalu ketik command dibawah ini : 
 
