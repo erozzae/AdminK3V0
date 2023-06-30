@@ -1,4 +1,5 @@
-
+# Web Admin K3V0
+Merupakan website admin yang berfungsi untuk menampung materi materi dari k3 lab, menampung quiz di setiap materi, dan manajemen akun.
 
 ## Setup Web Service
 - Download Web Servicenya di https://github.com/erozzae/K3V0 
